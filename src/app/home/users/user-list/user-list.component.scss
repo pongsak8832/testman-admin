@@ -1,0 +1,35 @@
+.link {
+    cursor: pointer;
+    color: rgb(3, 155, 229);
+  }
+  
+  .link:hover {
+    text-decoration: underline;
+  }
+
+  .font_color {
+    color: #6c6c6c;
+  }
+
+  .chip_department {
+    height: 20px;
+    padding-left: 20xp;
+    padding-right: 20xp;
+    border-radius: 13px;
+    margin-left: 10px;
+    background-color: #bebebe;
+  }
+
+  .text_title {
+    width: 201px;
+    height: 38px;
+    font-family: Roboto;
+    font-size: 32px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.23px;
+    margin-bottom: 10px;
+    color: #ff974a;
+  }

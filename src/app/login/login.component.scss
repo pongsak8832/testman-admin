@@ -1,0 +1,86 @@
+@import "../../styles/variable";
+
+//::ng-deep {
+
+  .container ::ng-deep{
+    height: 96%;
+    background: #0062b8;
+    background-attachment: fixed;
+    overflow: auto;
+  }
+
+  .form-control ::ng-deep{
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-shadow: none !important;
+    transition: background-color .2s;
+    color: $text-primary-color;
+    background-color: #fff;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    padding: 5px 12px;
+    height: 32px;
+    width: 330px;
+    font-size: 1rem;
+  }
+
+  .form-control:focus ::ng-deep{
+    border-color: #3F5498;
+    transition: border-color .2s;
+  }
+
+  .text-delimiter ::ng-deep{
+    color: black;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 19px 0;
+  }
+
+  .mat-form-field-appearance-legacy .mat-form-field-underline ::ng-deep{
+    height: 0 !important;
+  }
+
+  .logo ::ng-deep{
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  :focus ::ng-deep{
+    outline: 0 !important;
+  }
+
+  ::placeholder ::ng-deep{ /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black;
+    opacity: 0.5;
+  }
+
+  :-ms-input-placeholder ::ng-deep{ /* Internet Explorer 10-11 */
+    color: black;
+    opacity: 0.5;
+  }
+
+  ::-ms-input-placeholder ::ng-deep{ /* Microsoft Edge */
+    color: black;
+    opacity: 0.5;
+  }
+
+  .mat-raised-button[disabled][disabled] ::ng-deep{
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .form-control[_ngcontent-oao-c32] {
+    border-bottom: 0;
+}
+
+input:-internal-autofill-selected {
+  background-color: rgb(232, 240, 254) !important;
+  background-image: none !important;
+  color: rgb(0, 0, 0) !important;
+}
+

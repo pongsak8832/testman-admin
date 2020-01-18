@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "test-man-app": {
+          "hosting": {
+            "web-admin": [
+              "test-man-app"
+            ]
+          }
+        }
+  },
+  "projects": {
+    "test-man-app": "test-man-app",
+  }
+}

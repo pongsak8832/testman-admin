@@ -1,0 +1,50 @@
+::ng-deep {
+    .mat-form-field-flex {
+        display: inline-flex;
+        align-items: baseline;
+        box-sizing: border-box;
+        width: 100%;
+        height: 50px !important;
+    }
+  
+    appearance-outline .mat-form-field-suffix {
+        top: 0em !important; 
+    }
+  
+    .mat-form-field-appearance-outline .mat-form-field-infix {
+        padding: 1px !important;
+    }
+  
+    .mat-form-field-wrapper {
+        padding-bottom: 0px !important;
+    }
+  }
+
+  .btn_save {
+    width: 186px;
+    height: 38px;
+    border-radius: 10px;
+    background-color: #50b5ff; color: white;
+  }
+
+  .btn_cancel {
+    width: 186px;
+    height: 38px;
+    border-radius: 10px;
+    border: solid 1px #50b5ff; text-align: center;
+    margin-left: 20px;
+  }
+
+  .text_title {
+    width: 369px;
+    height: 38px;
+    font-family: Roboto;
+    font-size: 32px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.23px;
+    margin-bottom: 10px;
+    color: #ff974a;
+  }

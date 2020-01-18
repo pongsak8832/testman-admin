@@ -1,0 +1,52 @@
+<ng-template tdLoading [tdLoadingUntil]="!isLoading" tdLoadingStrategy="overlay" tdLoadingType="tdMode=">
+    <div mat-dialog-content>
+        <div>
+            <p class="text_title">
+                {{isEdit ? 'Edit User' : 'Add New User'}}
+            </p>
+        </div>
+        <div fxLayout="row" style="margin-top: 20px;">
+            <div fxFlex>
+                <mat-form-field [appearance]="appearance" style="width: 100%;">
+                    <mat-label style="padding: 5px !important;">Name</mat-label>
+                    <input style="padding: 5px !important;" [(ngModel)]="userModel.name" (ngModelChange)="onCheckCanSave()" required matInput required type="text" >
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row" style="margin-top: 20px;">
+            <div fxFlex>
+                <mat-form-field [appearance]="appearance" style="width: 100%;">
+                    <mat-label style="padding: 5px !important;">Email</mat-label>
+                    <input style="padding: 5px !important;" [formControl]="emailControl" (ngModelChange)="onCheckCanSave()" matInput required type="text" >
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row" style="margin-top: 20px;">
+            <div fxFlex>
+                <mat-form-field [appearance]="appearance" style="width: 100%;">
+                    <mat-label style="padding: 5px !important;">Role</mat-label>
+                    <mat-select style="padding: 5px !important;" [(ngModel)]="userModel.roleId" (ngModelChange)="onCheckCanSave()" >
+                        <mat-option *ngFor="let item of roleList" [value]="item.id">
+                            {{item.name}}
+                        </mat-option>
+                      </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="center center" style="margin-top: 20px;">
+            <button 
+                mat-raised-button
+                [mat-dialog-close]
+                class="btn_cancel">
+                Cancel
+            </button>
+            <button 
+                mat-raised-button 
+                (click)="onSave()" 
+                [disabled]="!isCanSave"
+                class="btn_save">
+                {{isEdit ? 'Save' : 'Create'}}
+            </button>
+        </div>
+    </div>
+</ng-template>

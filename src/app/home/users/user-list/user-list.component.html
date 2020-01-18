@@ -1,0 +1,94 @@
+ 
+     <p class="text_title">User Manager</p>
+     <mat-card class="" style="box-shadow: 2px 0 8px 0 rgba(0, 0, 0, 0.32);">
+        <div layout="row" layout-align="start center" class="pad-left-sm pad-right-sm">
+            <td-search-box backIcon="arrow_back" class="push-right-sm"
+                           placeholder="Search..."
+                           (searchDebounce)="search($event)" flex>
+            </td-search-box>
+            <button mat-raised-button style="background-color: #50b5ff; color: #ffffff; border-radius: 10px; width: 120px;
+            height: 38px;" (click)="onOpenUserInfo()">
+                Add New User
+            </button>
+        </div>
+        <mat-divider></mat-divider>
+    
+        <ng-template tdLoading [tdLoadingUntil]="!isLoading" tdLoadingStrategy="overlay" tdLoadingType="linear">
+    
+        </ng-template>
+        <td-data-table
+                [data]="filteredData"
+                [sortable]="true"
+                [sortBy]="sortBy"
+                [sortOrder]="sortOrder"
+                (sortChange)="sort($event)"
+                [columns]="configWidthColumns">
+              
+                <ng-template tdDataTableTemplate="id" let-row="row" let-column="column">
+                    {{filteredData.indexOf(row) + 1}}
+                </ng-template>
+        
+                <ng-template tdDataTableTemplate="name" let-row="row">
+                    <div class="link text-truncate" (click)="onOpenUserInfo(row)">
+                        {{row.name}}
+                    </div>
+                </ng-template>
+        
+                <ng-template tdDataTableTemplate="email" let-row="row">
+                    {{row.email }}
+                </ng-template>
+        
+                <ng-template tdDataTableTemplate="createDate" let-row="row">
+                    {{row.createDate | date : 'dd/MM/yyyy'}}
+                </ng-template>
+        
+                <ng-template tdDataTableTemplate="roleId" let-row="row">
+                    {{row.roleId}}
+                </ng-template>
+        
+                <ng-template tdDataTableTemplate="status" let-row="row">
+                    <mat-chip-list>
+                        <mat-chip *ngIf="row.status == 'active'" style="background: #98cfff ;color: #ffffff">
+                            active
+                        </mat-chip>
+                        <mat-chip *ngIf="row.status !== 'active'" style="background: #00c700; color: #ffffff">
+                            Inactive
+                        </mat-chip>
+                    </mat-chip-list>
+                </ng-template>
+        
+                <ng-template tdDataTableTemplate="operation" let-row="row">
+                    <button mat-icon-button [matMenuTriggerFor]="menu">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <button *ngIf="row.status != 'active'" mat-menu-item (click)="active(row, 'active')">
+                            <span>Active</span>
+                        </button>
+                        <button *ngIf="row.status != 'inactive'" mat-menu-item (click)="active(row, 'inactive')">
+                            <span>Inactive</span>
+                        </button>
+                        <button mat-menu-item (click)="resetPassword(row)">
+                            <span>Reset Password</span>
+                        </button>
+                    </mat-menu>
+                </ng-template>
+        </td-data-table>
+        <div class="md-padding" *ngIf="!loading && filteredData.length == 0" layout="row" layout-align="center center">
+                <div layout="column" layout-align="center center" class="tc-grey-500 mat-typography pad-lg">
+                    <mat-icon matListAvatar class="text-super push-bottom">chrome_reader_mode</mat-icon>
+                    <h2>No user found.</h2>
+                    <h3>You have not user.</h3>
+                </div>
+        </div>
+        <td-paging-bar #pagingBar [pageSize]="pageSize" [total]="filteredTotal" (change)="page($event)">
+                <span hide-xs>Rows per page:</span>
+                <mat-select [style.width.px]="60" [(ngModel)]="pageSize">
+                  <mat-option *ngFor="let size of [10, 20, 50,100,200,500]" [value]="size">
+                    {{size}}
+                  </mat-option>
+                </mat-select>
+                {{pagingBar.range}} <span hide-xs>of {{pagingBar.total}}</span>
+        </td-paging-bar>
+    </mat-card> 
+    
