@@ -1,5 +1,28 @@
 @import "../../styles/variable";
 
+$home-background-color: #1a1a1a;
+
+$home-footer-background-color: #232425;
+
+/* HOME : SIDEBAR */
+.app-home-title {
+  color: $app-orenge;
+}
+
+// set menu height
+.mat-list-base .mat-list-item, .mat-list-base .mat-list-option {
+  height: 45px !important;
+}
+
+// set footer 
+.app-home-footer {
+  padding: 10px auto;
+  font-size: 14px;
+  background-color: $home-footer-background-color;
+  color: #92929d; 
+}
+
+
 @media print {
   .noprint {
     display: none;
@@ -9,22 +32,22 @@
 ::ng-deep {
 
   .menu_selected {
-    background: #af9143;
+    background-color: $app-orenge;
   }
 
   mat-nav-list a[mat-list-item] .mat-list-item-content {
-    font-size: 12px !important;
+    font-size: 16px !important;
   }
 
   .menu_selected {
-    background: #ffffff !important;
+    background-color: #ffffff !important;
 
     .mat-list-item-content, .mat-list-item-content .mat-icon {
-      color: #af9143 !important;
+      color: $app-orenge !important;
     }
 
     a {
-      background: #ffffff !important;
+      background-color: #ffffff !important;
       color: $primary !important;
     }
   }
@@ -43,12 +66,12 @@
   }
 
   .mat-list-base {
-    background: #0062b8;
+    background-color: $home-background-color;
     color: #ffffff;
   }
 
   .td-expansion-panel-header .td-expansion-panel-header-content {
-    background: #0062b8;
+    background-color: $home-background-color;
   }
 
   .td-expansion-label, mat-icon.td-expand-icon {
@@ -56,7 +79,7 @@
   }
 
   a {
-    // background: #0E1D44 !important;
+    // background-color: #0E1D44 !important;
     // color: #fff !important;
   }
 
@@ -72,7 +95,7 @@
 
   mat-toolbar {
     z-index: 2 !important;
-    background: #ffffff !important;
+    background-color: #ffffff !important;
   }
 
   .toolbar-menu {
@@ -119,11 +142,11 @@
   }
 
   .td-layout-manage-list-sidenav {
-    background: #0062b8;
+    background-color: $home-background-color;
   }
 
   .td-layout-manage-list-main {
-    background: #EDF1FF !important;
+    background-color: #EDF1FF !important;
   }
 
   .mat-list-base .mat-list-item, .mat-list-base .mat-list-option {
@@ -131,7 +154,7 @@
   }
 
   mat-sidenav-container.td-layout-manage-list > .mat-drawer > .mat-drawer-inner-container {
-    background: #0062b8;
+    background-color: $home-background-color;
   }
 
   .mat-drawer.mat-drawer-side {
@@ -149,7 +172,7 @@
     height: 22px;
     border-radius: 100px;
     width: 3px;
-    background-color: #af9143;
+    background-color: $app-orenge;
   }
 
   .td-layout-manage-list-content {

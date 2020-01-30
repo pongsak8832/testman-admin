@@ -18,11 +18,11 @@ import { OrganizationService } from 'src/app/service/organization.service';
 export class ClientManagerListComponent implements OnInit {
 
   configWidthColumns: ITdDataTableColumn[] = [
-    { name: 'id', label: 'No.', width: 100 },
-    { name: 'name', label: 'Name', filter: true, sortable: true, width: 200 },
+    { name: 'id', label: 'No.', width: {min: 100, max:100 } },
+    { name: 'name', label: 'Name', filter: true, sortable: true, width: {min: 250, max:250 } },
     { name: 'email', label: 'Email', filter: true, sortable: true, },
     { name: 'organizationId', label: 'OrganizationId Name', filter: true, sortable: true, },
-    { name: 'status', label: 'Status', width: 100 },
+    { name: 'status', label: 'Status', width: {min: 150, max:150 } },
     { name: 'operation', label: '', width: 80 },
   ];
 
@@ -76,7 +76,7 @@ export class ClientManagerListComponent implements OnInit {
     });
   }
 
-  onOpenUserInfo(row?: ClientModel): void {
+  onOpenInfo(row?: ClientModel): void {
     const dialogRef = this._dialog.open(ClientManagerInfoComponent, {
       width: '40%',
       disableClose: false,

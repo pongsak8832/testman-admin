@@ -1,17 +1,19 @@
  
-     <p class="text_title">Test Manager</p>
-     <mat-card class="" style="box-shadow: 2px 0 8px 0 rgba(0, 0, 0, 0.32);">
+    <p class="app-title-content">Test Manager</p>
+
+     <mat-card class="app-card-content">
+
         <div layout="row" layout-align="start center" class="pad-left-sm pad-right-sm">
-            <td-search-box backIcon="arrow_back" class="push-right-sm"
+
+            <td-search-box backIcon="arrow_back" class="push-right-sm app-table-search"
                            placeholder="Search..."
                            (searchDebounce)="search($event)" flex>
             </td-search-box>
+
         </div>
-        <mat-divider></mat-divider>
-    
-        <ng-template tdLoading [tdLoadingUntil]="!isLoading" tdLoadingStrategy="overlay" tdLoadingType="linear">
-    
-        </ng-template>
+
+        <!-- <mat-divider></mat-divider> -->
+
         <td-data-table
                 [data]="filteredData"
                 [sortable]="true"
@@ -21,46 +23,62 @@
                 [columns]="configWidthColumns">
       
                 <ng-template tdDataTableTemplate="id" let-row="row" let-column="column">
-                    {{row.id}}
+                    <span class="text-truncate text-app-dark">
+                        {{row.id}}
+                    </span>
                 </ng-template>
         
                 <ng-template tdDataTableTemplate="clientRef" let-row="row">
-                    {{row.clientRef}}
+                    <span class="text-truncate text-app-dark">
+                        {{row.clientRef || '-'}}
+                    </span>
                 </ng-template>
         
                 <ng-template tdDataTableTemplate="organizationId" let-row="row">
-                    {{row.organizationId }}
+                    <span class="text-truncate text-app-dark">
+                        {{row.organizationId || '-'}}
+                    </span>
                 </ng-template>
 
                 <ng-template tdDataTableTemplate="testName" let-row="row">
-                    {{row.testName }}
+                    <span class="text-truncate text-app-dark">
+                        {{row.testName || '-'}}
+                    </span>
                 </ng-template>
         
                 <ng-template tdDataTableTemplate="questionQTY" let-row="row">
-                    {{row.questionQTY }}
+                    <span class="text-truncate text-app-dark">
+                        {{row.questionQTY || '-'}}
+                    </span>
                 </ng-template>
         
                 <ng-template tdDataTableTemplate="score" let-row="row">
-                    {{row.score}}
+                    <span class="text-truncate text-app-dark">
+                        {{row.score || '-'}}
+                    </span>
                 </ng-template>
         
                 <ng-template tdDataTableTemplate="testingTime" let-row="row">
-                    {{row.testingTime}}
+                    <span class="text-truncate text-app-dark">
+                        {{row.testingTime || '-'}}
+                    </span>
                 </ng-template>
         
                 <ng-template tdDataTableTemplate="tested" let-row="row">
-                    {{row.tested}}
+                    <span class="text-truncate text-app-dark">
+                        {{row.tested || '-'}}
+                    </span>
                 </ng-template>
         
                 <ng-template tdDataTableTemplate="status" let-row="row">
                     <mat-chip-list>
-                        <mat-chip *ngIf="row.status == 'draft'" style="background: #98cfff ;color: #ffffff">
+                        <mat-chip *ngIf="row.status == 'draft'"  class="chip-sm-app-sky chip-app-fix-size">
                             Draft
                         </mat-chip>
-                        <mat-chip *ngIf="row.status == 'published'" style="background: #00c700; color: #ffffff">
+                        <mat-chip *ngIf="row.status == 'published'"  class="chip-sm-app-green chip-app-fix-size">
                             Published
                         </mat-chip>
-                        <mat-chip *ngIf="row.status == 'unpublished'" style="background: #bebebe; color: #ffffff">
+                        <mat-chip *ngIf="row.status == 'unpublished'"  class="chip-sm-app-gray chip-app-fix-size">
                             Unpublished
                         </mat-chip>
                     </mat-chip-list>
@@ -80,13 +98,17 @@
                     </mat-menu>
                 </ng-template> -->
         </td-data-table>
-        <div class="md-padding" *ngIf="!loading && filteredData.length == 0" layout="row" layout-align="center center">
+
+        <ng-template tdLoading [tdLoadingUntil]="!isLoading" tdLoadingStrategy="overlay" tdLoadingType="linear"></ng-template>
+
+        <div class="md-padding" *ngIf="!isLoading && filteredData.length == 0" layout="row" layout-align="center center">
                 <div layout="column" layout-align="center center" class="tc-grey-500 mat-typography pad-lg">
                     <mat-icon matListAvatar class="text-super push-bottom">chrome_reader_mode</mat-icon>
                     <h2>No test found.</h2>
                     <h3>You have not test.</h3>
                 </div>
         </div>
+
         <td-paging-bar #pagingBar [pageSize]="pageSize" [total]="filteredTotal" (change)="page($event)">
                 <span hide-xs>Rows per page:</span>
                 <mat-select [style.width.px]="60" [(ngModel)]="pageSize">
@@ -96,5 +118,6 @@
                 </mat-select>
                 {{pagingBar.range}} <span hide-xs>of {{pagingBar.total}}</span>
         </td-paging-bar>
+
     </mat-card> 
     

@@ -17,14 +17,18 @@ import { RolesService } from 'src/app/service/roles.service';
 export class UserListComponent implements OnInit {
 
   configWidthColumns: ITdDataTableColumn[] = [
-    { name: 'id', label: 'No.', width: 100 },
-    { name: 'name', label: 'Name', filter: true, sortable: true, width: 200 },
+    { name: 'id', label: 'No.', width: {min: 100, max:100 } },
+    { name: 'name', label: 'Name', filter: true, sortable: true, width: {min: 250, max:250 } },
     { name: 'email', label: 'Email', filter: true, sortable: true, },
-    { name: 'createDate', label: 'Member Since', filter: true, width: 100 },
-    { name: 'roleId', label: 'roleId', filter: true, width: 100 },
-    { name: 'status', label: 'Status', width: 100 },
-    { name: 'operation', label: '', width: 80 },
+    { name: 'createDate', label: 'Member Since', filter: true, width: {min: 150, max:150 } },
+    { name: 'roleId', label: 'roleId', filter: true, width: {min: 150, max:150 } },
+    { name: 'status', label: 'Status', width: {min: 150, max:150 } },
+    { name: 'operation', label: '', width: {min: 80, max:80 } },
   ];
+
+  columnDefs: [
+    { className: "dt-center", targets: [ 0, 1, 2 ] }
+  ]
 
   data: UserModel[] = [];
   isLoading = false;
@@ -75,7 +79,7 @@ export class UserListComponent implements OnInit {
     });
   }
 
-  onOpenUserInfo(row?: UserModel): void {
+  onOpenInfo(row?: UserModel): void {
     const dialogRef = this._dialog.open(UserInfoComponent, {
       width: '40%',
       disableClose: false,

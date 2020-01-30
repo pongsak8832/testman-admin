@@ -1,15 +1,16 @@
 <td-layout class="noprint">
 
     <td-layout-manage-list #manageList [opened]="_media.registerQuery('gt-sm') | async"
-                            style="background: #0062b8;  box-shadow: 2px 0 8px 0 #0062b8;"
                             [mode]="(_media.registerQuery('gt-sm') | async) ? 'side' :  'over'"
-                            [sidenavWidth]="(_media.registerQuery('gt-xs') | async) ? '230px' : '96%'">
+                            [sidenavWidth]="(_media.registerQuery('gt-xs') | async) ? '250px' : '96%'">
           
         <mat-nav-list td-sidenav-content style="padding-top: 0px;">
-            <div style="background:white; height: 232px; padding-top: 20px;" fxLayout="column" fxLayoutAlign="start center">
+            
+            <div style="background-color:white; height: 232px; padding-top: 20px;" fxLayout="column" fxLayoutAlign="start center">
                 <img class="logo" src="assets/logo.png" alt="logo">
-                <p style="color: #af9143; font-size: 15px; margin-bottom: 0px;">TESTMAN ADMIN PANEL</p>
+                <div class="app-home-title">TESTMAN ADMIN PANEL</div>
             </div>
+
             <a class="border-bottom" mat-list-item
                 (click)="route = 'dashboard';name = 'dashboard'"
                 [ngClass]="{'menu_selected': 'dashboard' == route}">
@@ -66,7 +67,7 @@
             </div>
             <mat-menu #menu="matMenu">
                 <button mat-menu-item (click)="logout()">
-                    <span>ออกจากระบบ</span>
+                    <span class="text-app-orent">ออกจากระบบ</span>
                 </button>
             </mat-menu>
         </mat-card>
@@ -75,8 +76,8 @@
             <router-outlet></router-outlet>
         </div>
 
-        <td-layout-footer-inner style="background: #232425; height: 2%;">
-            <div class="text-center" style="color: #92929d; font-size: 14px; ">Copyright © 2019 Abstech Online Solutions Co., Ltd.</div>
+        <td-layout-footer-inner class="app-home-footer">
+            <div class="text-center">Copyright © 2020 Abstech Online Solutions Co., Ltd.</div>
             <a href="http://www.abstech.co.th" target="_blank"></a>
         </td-layout-footer-inner>
 

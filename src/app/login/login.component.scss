@@ -1,10 +1,43 @@
 @import "../../styles/variable";
 
+$login-background-color: #717171;
+
+$login-footer-background-color: #232425;
+
+// card
+.app-login-card {
+  box-shadow: 2px 0 20px 0 rgba(0, 0, 0, 0.50) !important;
+  border-radius: 0px;
+  padding: 20px !important;
+}
+
+// set footer 
+.app-login-footer {
+  padding: 10px auto;
+  font-size: 14px;
+  background-color: $login-footer-background-color;
+  color: #92929d; 
+}
+
+.app-login-title {
+  color: $app-primary;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.app-login-btn {
+  background-color: $app-orenge;
+  color: #ffffff;
+  border-radius: 10px !important;
+  min-width: 120px;
+  height: 38px;
+}
+
 //::ng-deep {
 
   .container ::ng-deep{
     height: 96%;
-    background: #0062b8;
+    background-color: $login-background-color;
     background-attachment: fixed;
     overflow: auto;
   }

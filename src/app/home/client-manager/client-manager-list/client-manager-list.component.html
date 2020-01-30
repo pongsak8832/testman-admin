@@ -1,21 +1,22 @@
- 
-     <p class="text_title">Client Manager</p>
-     <mat-card class="" style="box-shadow: 2px 0 8px 0 rgba(0, 0, 0, 0.32);">
+     <p class="app-title-content">Client Manager</p>
+
+     <mat-card class="app-card-content">
+
         <div layout="row" layout-align="start center" class="pad-left-sm pad-right-sm">
-            <td-search-box backIcon="arrow_back" class="push-right-sm"
+
+            <td-search-box backIcon="arrow_back" class="push-right-sm app-table-search"
                            placeholder="Search..."
                            (searchDebounce)="search($event)" flex>
             </td-search-box>
-            <button mat-raised-button style="background-color: #50b5ff; color: #ffffff; border-radius: 10px; width: 180px;
-            height: 38px;" (click)="onOpenUserInfo()">
+            
+            <button mat-flat-button class="btn-app-table-create" (click)="onOpenInfo()">
                 Add New Client
             </button>
+
         </div>
-        <mat-divider></mat-divider>
+
+        <!-- <mat-divider></mat-divider> -->
     
-        <ng-template tdLoading [tdLoadingUntil]="!isLoading" tdLoadingStrategy="overlay" tdLoadingType="linear">
-    
-        </ng-template>
         <td-data-table
                 [data]="filteredData"
                 [sortable]="true"
@@ -29,25 +30,29 @@
                 </ng-template>
         
                 <ng-template tdDataTableTemplate="name" let-row="row">
-                    <div class="link text-truncate" (click)="onOpenUserInfo(row)">
-                        {{row.name}}
-                    </div>
+                    <span class="text-truncate text-app-orenge pointer" (click)="onOpenInfo(row)">
+                        {{row.name||'-'}}
+                    </span>
                 </ng-template>
         
                 <ng-template tdDataTableTemplate="email" let-row="row">
-                    {{row.email }}
+                    <span class="text-app-dark">
+                        {{row.email||'-'}}
+                    </span>
                 </ng-template>
         
                 <ng-template tdDataTableTemplate="organizationId" let-row="row">
-                    {{row.organizationId}}
+                    <span class="text-truncate text-app-dark">
+                        {{row.organizationId||'-'}}
+                    </span>
                 </ng-template>
         
                 <ng-template tdDataTableTemplate="status" let-row="row">
                     <mat-chip-list>
-                        <mat-chip *ngIf="row.status == 'active'" style="background: #98cfff ;color: #ffffff">
-                            active
+                        <mat-chip *ngIf="row.status == 'active'" class="chip-sm-app-green chip-app-fix-size">
+                            Active
                         </mat-chip>
-                        <mat-chip *ngIf="row.status !== 'active'" style="background: #00c700; color: #ffffff">
+                        <mat-chip *ngIf="row.status !== 'active'" class="chip-sm-app-gray chip-app-fix-size">
                             Inactive
                         </mat-chip>
                     </mat-chip-list>
@@ -59,24 +64,28 @@
                     </button>
                     <mat-menu #menu="matMenu">
                         <button *ngIf="row.status != 'active'" mat-menu-item (click)="active(row, 'active')">
-                            <span>Active</span>
+                            <span class="text-app-orenge">Active</span>
                         </button>
                         <button *ngIf="row.status != 'inactive'" mat-menu-item (click)="active(row, 'inactive')">
-                            <span>Inactive</span>
+                            <span class="text-app-orenge">Inactive</span>
                         </button>
                         <button mat-menu-item (click)="resetPassword(row)">
-                            <span>Reset Password</span>
+                            <span class="text-app-orenge">Reset Password</span>
                         </button>
                     </mat-menu>
                 </ng-template>
         </td-data-table>
-        <div class="md-padding" *ngIf="!loading && filteredData.length == 0" layout="row" layout-align="center center">
+
+        <ng-template tdLoading [tdLoadingUntil]="!isLoading" tdLoadingStrategy="overlay" tdLoadingType="linear"></ng-template>
+
+        <div class="md-padding" *ngIf="!isLoading && filteredData.length == 0" layout="row" layout-align="center center">
                 <div layout="column" layout-align="center center" class="tc-grey-500 mat-typography pad-lg">
                     <mat-icon matListAvatar class="text-super push-bottom">chrome_reader_mode</mat-icon>
-                    <h2>No user found.</h2>
-                    <h3>You have not user.</h3>
+                    <h2>No client found.</h2>
+                    <h3>You have not client.</h3>
                 </div>
         </div>
+
         <td-paging-bar #pagingBar [pageSize]="pageSize" [total]="filteredTotal" (change)="page($event)">
                 <span hide-xs>Rows per page:</span>
                 <mat-select [style.width.px]="60" [(ngModel)]="pageSize">
@@ -86,5 +95,6 @@
                 </mat-select>
                 {{pagingBar.range}} <span hide-xs>of {{pagingBar.total}}</span>
         </td-paging-bar>
+
     </mat-card> 
     

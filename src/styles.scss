@@ -1,18 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import './styles/styles.scss';
 @import './styles/theme.scss';
+@import './styles/variable.scss';
 
 //.mat-dialog-content {
 //  //max-height: 80vh !important;
 //  //overflow: hidden !important;
 //}
-
-
-$app-primary : #002d55; //title color
-
-$app-sky: rgb(0, 120, 200); // สีฟ้า
-
-$app-gold: #b99f5b; // สีทอง
 
 @font-face {
   font-family: DB Helvethaica;
@@ -29,7 +23,53 @@ $app-gold: #b99f5b; // สีทอง
   src: url("assets/fonts/SiPH-Prototype.ttf");
 }
 
-.td-data-table-heading {
+$colors: (
+
+  app-primary : $app-primary,
+
+  app-sky: $app-sky,
+
+  app-gold: $app-gold,
+
+  app-danger: $app-danger,
+
+  app-gray: $app-gray,
+
+  app-orenge: $app-orenge,
+
+  app-dark: $app-dark,
+
+);
+
+@mixin color-modifiers($attribute: 'color') {
+  @each $name, $hex in $colors {
+    &-#{$name} {
+      #{$attribute}: $hex;
+    }
+  }
+}
+
+.text {
+  @include color-modifiers(color);
+}
+
+.bg {
+  @include color-modifiers(background-color);
+}
+
+.border {
+  @include color-modifiers(border-color);
+}
+
+// .badeg {
+//   @include color-modifiers(background-color);
+// }
+
+.pointer {
+  cursor: pointer;
+}
+
+/* .td-data-table-heading {
   padding: 0 10px !important;
 }
 
@@ -124,7 +164,7 @@ $app-gold: #b99f5b; // สีทอง
 
 .calenda-label-hover:hover{
   color: rgb(90, 195, 255) !important;
-}
+} */
 
 .mr {
   margin-right: 10px !important;
@@ -142,9 +182,9 @@ $app-gold: #b99f5b; // สีทอง
   margin-bottom: 10px !important;
 }
 
-.title-pop-size {
+/* .title-pop-size {
   font-size: 20px;
-}
+} */
 
 /* button */
 
@@ -160,6 +200,13 @@ $app-gold: #b99f5b; // สีทอง
   height: 38px;
 }
 
+.btn-app-orenge {
+  background-color: $app-orenge;
+  color: #ffffff;
+  border-radius: 10px !important;
+  min-width: 120px;
+  height: 38px;
+}
 
 .btn-app-gold-outline {
   background-color: #ffffff;
@@ -179,10 +226,34 @@ $app-gold: #b99f5b; // สีทอง
   height: 38px;
 }
 
+.btn-app-orenge-outline {
+  background-color: #ffffff;
+  color: $app-orenge!important;
+  border: solid 1px $app-orenge !important;
+  border-radius: 10px !important;
+  min-width: 120px;
+  height: 38px;
+}
 
 
+
+.btn-app-table-create {
+  @extend .btn-app-orenge;
+}
+
+.btn-app-popup-create {
+  @extend .btn-app-orenge;
+}
+
+.btn-app-popup-cancel {
+  @extend .btn-app-orenge-outline;
+}
+
+
+
+/* CARD */
 .app-title-content {
-  color: $app-primary;
+  color: $app-orenge;
   font-size: 2vw;
   margin-bottom: 0px;
   padding-left: 10px
@@ -190,7 +261,7 @@ $app-gold: #b99f5b; // สีทอง
 
 .app-card-content {
   font-size: 1vw;
-  box-shadow: 2px 0 8px 0 rgba(0, 0, 0, 0.32) !important;
+  box-shadow: 2px 0 8px 0 rgba(0, 0, 0, 0.20) !important;
   padding: 20px !important;
 }
 
@@ -202,3 +273,80 @@ $app-gold: #b99f5b; // สีทอง
 .d-none {
   display: none;
 }
+
+
+
+/* POPUP */
+.app-popup-title {
+  color: $app-orenge;
+  font-size: 1.5vw;
+  font-weight: bold;
+}
+
+
+
+/* TABLE */
+
+// table search icon
+.td-search-icon > span > .mat-icon {
+  color: $app-orenge !important;
+  font-size: 35px !important;
+  line-height: 35px !important;
+}
+
+// table header
+.td-data-table-heading {
+  color: $app-orenge !important;
+}
+
+// table sort-icon
+.td-data-table-sort-icon {
+  color: $app-orenge !important;
+}
+
+// table search input
+.td-search-input-field > .mat-form-field-wrapper > .mat-form-field-flex {
+  margin-top: 9px;
+}
+ 
+// table header line
+.td-data-table {
+  border-top: 2px solid $app-orenge;
+}
+
+.td-data-table-scrollable {
+  border-top: 0px !important;
+}
+
+// table header height
+.td-data-table-column-row {
+  height: 40px !important;
+}
+
+// chip
+.chip-sm-app-sky {
+  background-color: $app-sky !important;
+  color: white !important;
+  min-height: 0px !important;
+  padding: 10px 30px !important;
+}
+
+.chip-sm-app-green {
+  background-color: $app-green !important;
+  color: white !important;
+  min-height: 0px !important;
+  padding: 10px 30px !important;
+}
+
+.chip-sm-app-gray {
+  background-color: $app-gray !important;
+  color: white !important;
+  min-height: 0px !important;
+  padding: 10px 30px !important;
+}
+
+.chip-app-fix-size {
+  width: 100px !important;
+  justify-content: center;
+}
+

@@ -17,11 +17,11 @@ import { OrganizationModel } from 'src/app/model/organization.model';
 export class OrganizationManagerListComponent implements OnInit {
 
   configWidthColumns: ITdDataTableColumn[] = [
-    { name: 'id', label: 'No.', width: 100 },
-    { name: 'name', label: 'Name', filter: true, sortable: true},
-    { name: 'member', label: 'Member', filter: true, sortable: true, width: 200 },
-    { name: 'createDate', label: 'Member Since', filter: true, width: 100 },
-    { name: 'status', label: 'Status', width: 100 },
+    { name: 'id', label: 'No.', width: {min: 100, max:100 } },
+    { name: 'name', label: 'Name', filter: true, sortable: true, width: {min: 250, max:250 }},
+    { name: 'member', label: 'Member', filter: true, sortable: true },
+    { name: 'createDate', label: 'Member Since', filter: true, width: {min: 150, max:150 } },
+    { name: 'status', label: 'Status', width: {min: 150, max:150 } },
     { name: 'operation', label: '', width: 80 },
   ];
 

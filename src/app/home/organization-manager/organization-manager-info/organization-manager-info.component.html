@@ -1,32 +1,32 @@
 <ng-template tdLoading [tdLoadingUntil]="!isLoading" tdLoadingStrategy="overlay" tdLoadingType="tdMode=">
     <div mat-dialog-content>
-        <div>
-            <p class="text_title">
-                {{isEdit ? 'Edit Organization' : 'Add New Organization'}}
-            </p>
+        
+        <div class="app-popup-title">{{isEdit ? 'Edit Organization' : 'Add New Organization'}}</div>
+
+        <br>
+ 
+        <div fxLayout="column">
+
+            <mat-form-field [appearance]="appearance">
+                <mat-label>Name</mat-label>
+                <input [(ngModel)]="organizationModel.name" (ngModelChange)="onCheckCanSave()" required matInput required type="text" >
+            </mat-form-field>
+
         </div>
-        <div fxLayout="row" style="margin-top: 20px;">
-            <div fxFlex>
-                <mat-form-field [appearance]="appearance" style="width: 100%;">
-                    <mat-label style="padding: 5px !important;">Organization Name</mat-label>
-                    <input style="padding: 5px !important;" [(ngModel)]="organizationModel.name" (ngModelChange)="onCheckCanSave()" required matInput required type="text" >
-                </mat-form-field>
-            </div>
-        </div>
-        <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="center center" style="margin-top: 20px;">
-            <button 
-                mat-raised-button
-                [mat-dialog-close]
-                class="btn_cancel">
+
+        <div fxLayout="row" fxLayoutAlign="center center" style="margin-top: 20px;">
+            
+            <button fxFlex="30" mat-flat-button [mat-dialog-close] class="btn-app-popup-cancel">
                 Cancel
             </button>
-            <button 
-                mat-raised-button 
-                (click)="onSave()" 
-                [disabled]="!isCanSave"
-                class="btn_save">
+
+            <div fxFlex="5"></div>
+
+            <button fxFlex="30" mat-flat-button [disabled]="!isCanSave" class="btn-app-popup-create" (click)="onSave()">
                 {{isEdit ? 'Save' : 'Create'}}
             </button>
+            
         </div>
+
     </div>
 </ng-template>
