@@ -8,6 +8,7 @@ import { QuestionHDService  } from 'src/app/service/question-HD.service';
 import { QuestionHDModel } from 'src/app/model/question-HD.model';
 import { QuestionDTService } from 'src/app/service/question-DT.service';
 import { ModalService } from 'src/app/service/modal.service';
+import { OrganizationService } from 'src/app/service/organization.service';
 
 
 @Component({
@@ -47,6 +48,7 @@ export class TestManagerListComponent implements OnInit {
     public _dialog: MatDialog,
     private _questionHDService: QuestionHDService,
     private _questionDTservice: QuestionDTService,
+    private _organizationService: OrganizationService,
     private _modalService: ModalService,
     public _authService: AuthService) {
   }
@@ -71,6 +73,17 @@ export class TestManagerListComponent implements OnInit {
           this.isLoading = false;
           this._modalService.error(_err.message.toString());
         });
+
+        if ('organizationId' in _el) {
+          this._organizationService.getDataById(_el.organizationId).subscribe(_org => {
+            this.data[index].organizationId = _org.name;
+          },
+          _err => {
+            this.isLoading = false;
+            this._modalService.error(_err.message.toString());
+          });
+        }
+
       });
 
       this.filter();
