@@ -1,20 +1,5 @@
-
 {
   "targets": {
-    "siph-recruit": {
-      "hosting": {
-        "web-admin": [
-          "siph-recruit"
-        ]
-      }
-    },
-    "siph-recruit-uat": {
-      "hosting": {
-        "web-admin": [
-          "siph-recruit-uat"
-        ]
-      }
-    },
     "test-man-app": {
           "hosting": {
             "web-admin": [
@@ -24,8 +9,7 @@
         }
   },
   "projects": {
-    "test-man-app": "test-man-app",
-    "siph-recruit-uat": "siph-recruit-uat",
-    "siph-recruit": "siph-recruit"
+    "test-man-app": "test-man-app"
   }
 }
+
