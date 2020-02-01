@@ -87,7 +87,7 @@ export class ClientManagerInfoComponent implements OnInit {
   }
 
   createClient(): void {
-    this._modalService.confirms().then(_allow => {
+    this._modalService.confirms('ยืนยันบันทึกข้อมูล').then(_allow => {
       if (!_allow.value) {
         return;
       }
@@ -117,7 +117,7 @@ export class ClientManagerInfoComponent implements OnInit {
   }
 
   updateClient(): void {
-    this._modalService.confirms().then((_allow) => {
+    this._modalService.confirms('ยืนยันบันทึกข้อมูล').then((_allow) => {
       if (!_allow.value) {
         return;
       }
