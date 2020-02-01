@@ -15,7 +15,7 @@ export class ModalService {
       icon: 'question',
       heightAuto: false,
       showCancelButton: true,
-      confirmButtonColor: '#002d55',
+      confirmButtonColor: '#ff974a',
       cancelButtonColor: '#b2b2b2',
       cancelButtonText: 'ยกเลิก',
       confirmButtonText: 'ยืนยัน',

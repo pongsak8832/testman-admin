@@ -55,7 +55,7 @@ export class UserInfoComponent implements OnInit {
   }
 
   createUser(): void {
-    this._modalService.confirms().then(_allow => {
+    this._modalService.confirms('ยืนยันบันทึกข้อมูล').then(_allow => {
       if (!_allow.value) {
         return;
       }
@@ -87,7 +87,7 @@ export class UserInfoComponent implements OnInit {
   }
 
   updateUser(): void {
-    this._modalService.confirms().then(_allow => {
+    this._modalService.confirms('ยืนยันบันทึกข้อมูล').then(_allow => {
       if (!_allow.value) {
         return;
       }

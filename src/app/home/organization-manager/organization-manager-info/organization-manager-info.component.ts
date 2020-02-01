@@ -37,7 +37,7 @@ export class OrganizationManagerInfoComponent implements OnInit {
   }
 
   createOrganization(): void {
-    this._modalService.confirms().then(_allow => {
+    this._modalService.confirms('ยืนยันบันทึกข้อมูล').then(_allow => {
       if (!_allow.value) {
         return;
       }
@@ -56,7 +56,7 @@ export class OrganizationManagerInfoComponent implements OnInit {
   }
 
   updateOrganization(): void {
-    this._modalService.confirms().then(_allow => {
+    this._modalService.confirms('ยืนยันบันทึกข้อมูล').then(_allow => {
       if (!_allow.value) {
         return;
       }
