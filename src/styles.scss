@@ -3,11 +3,6 @@
 @import './styles/theme.scss';
 @import './styles/variable.scss';
 
-//.mat-dialog-content {
-//  //max-height: 80vh !important;
-//  //overflow: hidden !important;
-//}
-
 @font-face {
   font-family: DB Helvethaica;
   src: url("assets/fonts/DB_Helvethaica_X_0.ttf");
@@ -69,102 +64,6 @@ $colors: (
   cursor: pointer;
 }
 
-/* .td-data-table-heading {
-  padding: 0 10px !important;
-}
-
-.td-data-table-cell-content-wrapper {
-  padding: 0 10px !important;;
-}
-
-.custom-dialog-container {
-  .mat-dialog-container {
-    padding: 0 !important;
-  }
-
-  .mat-card-content {
-    margin-bottom: 0 !important;
-  }
-}
-
-.mat-form-field-label {
-  line-height: 24px !important;
-}
-
-.mat-form-field-label-wrapper {
-  top: -1.2em !important;
-}
-
-.mat-error {
-  line-height: 16px !important;
-}
-
-.mat-form-field-subscript-wrapper {
-  font-size: 70% !important;
-  margin-top: 0.3666667em !important;;
-}
-
-[_nghost-c1] .td-expansion-panel {
-  border-bottom: 0px solid #ffffff !important;
-}
-
-.mat-title{
-  margin: 8px !important;
-}
-
-.td-data-table-cell {
-  font-family: 'Sarabun', sans-serif !important;
-}
-
-.td-data-table-column {
-  font-family: 'Sarabun', sans-serif !important;
-}
-
-.mat-toolbar.mat-primary {
-  background: white;
-}
-
-* {
-  font-family: 'SiPHPrototype';
-}
-
-.c-white {
-  color: #fff;
-}
-
-.c-sky {
-  color: rgb(39, 212, 255);
-}
-
-.a-unstyle {
-  text-decoration: none !important;
-}
- 
-::ng-deep {
-  .mat-form-field-flex {
-    display: inline-flex;
-    align-items: baseline;
-    box-sizing: border-box;
-    width: 100%;
-    height: 50px !important;
-  }
-
-  appearance-outline .mat-form-field-suffix {
-    top: 0em !important;
-  }
-
-  .mat-form-field-appearance-outline .mat-form-field-infix {
-    padding: 1px !important;
-  }
-
-  .mat-form-field-wrapper {
-    padding-bottom: 0px !important;
-  }
-}
-
-.calenda-label-hover:hover{
-  color: rgb(90, 195, 255) !important;
-} */
 
 .mr {
   margin-right: 10px !important;

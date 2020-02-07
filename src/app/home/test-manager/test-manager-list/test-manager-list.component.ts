@@ -24,9 +24,9 @@ export class TestManagerListComponent implements OnInit {
     { name: 'clientRef', label: 'Client Ref', filter: true, sortable: true, width: {min: 200, max:200 } },
     { name: 'testName', label: 'Test Name', filter: true, sortable: true },
     { name: 'questionQTY', label: 'Qestion QTY', filter: true, width: 100 },
-    { name: 'score', label: 'Score', filter: true, sortable: true, width: 50 },
-    { name: 'testingTime', label: 'Time (min)', filter: true, width: 70 },
-    { name: 'tested', label: 'Tested', width: 50 },
+    { name: 'score', label: 'Score', filter: true, sortable: true, width: 80 },
+    { name: 'testingTime', label: 'Time (min)', filter: true, width: 150 },
+    { name: 'tested', label: 'Tested', width: 80 },
     { name: 'status', label: 'Status', width: 150 },
   ];
 
