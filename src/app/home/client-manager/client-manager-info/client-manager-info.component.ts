@@ -96,7 +96,7 @@ export class ClientManagerInfoComponent implements OnInit {
         .toPromise()
         .then(async (createUser) => {
           if (createUser.status === 200) {
-            this.clientModel.uid = this._clientService.getId();
+            this.clientModel.uid = createUser.body.uid;
             this._clientService.addItem(this.clientModel).then(async () => {
               await this._clientService.sendResetEmail(this.clientModel);
               this._modalService.warning(`สร้าง รหัสผ่านที่ email: ${this.clientModel.email}`);

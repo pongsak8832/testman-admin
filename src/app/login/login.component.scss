@@ -13,7 +13,11 @@ $login-footer-background-color: #232425;
 
 // set footer 
 .app-login-footer {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
   padding: 10px auto;
+  width: 100%;
   font-size: 14px;
   background-color: $login-footer-background-color;
   color: #92929d; 
@@ -36,7 +40,7 @@ $login-footer-background-color: #232425;
 //::ng-deep {
 
   .container ::ng-deep{
-    height: 96%;
+    height: 100%;
     background-color: $login-background-color;
     background-attachment: fixed;
     overflow: auto;
